@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'Java21'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -14,6 +10,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                sh 'java -version'
                 sh 'mvn -B clean compile'
             }
         }
